@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 """
-Arbitrage du Feutre-Balle
+Statistiques du Feutre-Balle
 
-Les règles sont simples:
-
-    * Faire rebondir une balle de ping-pong réglementaire
-      sur un feutre réglementaire sans autre contact (main, sol, mur)
-    * Balle réglementaire : se référer à l'ITTF
-    * Feutre réglementaire : Domédia créative (intermarché)
+On m'a dit que ce script pourrait être plus générique
+qu'au seul usage du Feutre-Balle.
+De telles hérésies sont à proscrire.
 """
 
 # pylint: disable=too-few-public-methods
@@ -76,7 +73,7 @@ def __main__():
 
     historique = list()
 
-    print("Entrer chaque score consécutif réalisé au Feutre Ball :")
+    print("Entrer chaque score consécutif réalisé au Feutre-Balle :")
     try:
         while True:
             nb_rebonds = int(input("> "))
