@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 """
 Arbitrage du Feutre-Balle
+
+Les règles sont simples:
+
+    * Faire rebondir une balle de ping-pong réglementaire
+      sur un feutre réglementaire sans autre contact (main, sol, mur)
+    * Balle réglementaire : se référer à l'ITTF
+    * Feutre réglementaire : Domédia créative (intermarché)
 """
 
 # pylint: disable=too-few-public-methods
