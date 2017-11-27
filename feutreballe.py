@@ -3,6 +3,7 @@
 Arbitrage du Feutre-Balle
 """
 
+# pylint: disable=too-few-public-methods
 class Record():
     """
     A numeric record, which can be beaten
@@ -14,7 +15,11 @@ class Record():
         self.name = name
 
     def __str__(self):
-        return "best {}: {}".format(self.name, self.best)
+        if self.best is not None:
+            best = self.best
+        else:
+            best = "N/A"
+        return "best {}: {}".format(self.name, best)
 
     def update(self, value):
         """
@@ -25,13 +30,6 @@ class Record():
             if self.best is None or value > self.best:
                 self.best = value
                 print("new {}".format(self.__str__()))
-
-    def display(self):
-        """
-        Display current value
-        """
-        if self.best is not None:
-            print(self.__str__())
 
 def avg(values):
     """
@@ -72,24 +70,26 @@ def __main__():
     historique = list()
 
     print("Entrer chaque score consécutif réalisé au Feutre Ball :")
-    while True:
-        try:
+    try:
+        while True:
             nb_rebonds = int(input("> "))
-        except KeyboardInterrupt:
-            best.display()
-            bestavg5.display()
-            bestavg10.display()
-            best3of5.display()
-            best10of12.display()
-            break
+            historique.append(nb_rebonds)
 
-        historique.append(nb_rebonds)
-
-        best.update(nb_rebonds)
-        bestavg5.update(avgof(historique, 5))
-        bestavg10.update(avgof(historique, 10))
-        best3of5.update(bestof(historique, 5, 3))
-        best10of12.update(bestof(historique, 12, 10))
+            best.update(nb_rebonds)
+            bestavg5.update(avgof(historique, 5))
+            bestavg10.update(avgof(historique, 10))
+            best3of5.update(bestof(historique, 5, 3))
+            best10of12.update(bestof(historique, 12, 10))
+    except KeyboardInterrupt:
+        return
+    finally:
+        print()
+        print(best)
+        print(bestavg5)
+        print(bestavg10)
+        print(best3of5)
+        print(best10of12)
+        print()
 
 if __name__ == "__main__":
     __main__()
