@@ -10,5 +10,5 @@ Les règles sont simples:
 
 Le script `feutreballe.py` permet de calculer les statistiques
 correspondantes à une série de scores réalisés au Feutre-Balle.
-Il s'interrompt avec une valeur non convertible en `int`
-ou une interruption au clavier.
+Il s'interrompt en écrivant «sortie» ou «exit»,
+ou avec une interruption au clavier.

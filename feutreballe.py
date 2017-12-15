@@ -76,7 +76,18 @@ def __main__():
     print("Entrer chaque score consécutif réalisé au Feutre-Balle :")
     try:
         while True:
-            nb_rebonds = int(input("> "))
+            user_input = input("> ")
+            if not user_input:
+                continue
+            if user_input in ["sortie", "exit"]:
+                return
+            try:
+                nb_rebonds = int(user_input)
+            except ValueError as error:
+                print(error.args[0])
+                print("(skipping error)")
+                continue
+
             historique.append(nb_rebonds)
 
             best.update(nb_rebonds)
